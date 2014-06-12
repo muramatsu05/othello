@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Othello JS</title>
+    <link href="style.css" rel="stylesheet">
+
+  </head>
+  <body>
+<script type="text/javascript">
+function changeColor(){
+  document.getElementById('yes').innerHTML = '<i class="white"></i>';
+}
+
+$(function(){
+  $('td').click(function(){
+    if($(this).is('.1_1')){
+      document.getElementById('yes').innerHTML = '<i class="black"></i>';
+    }else{
+    // クラス【on】ないよ。
+    }
+  });
+});
+</script>
+
+
+
+
+
+    <div class="area-all">
+      <div class="area-main">
+        <table class="borad">
+          <tr>
+            <td class="1_1"><p id="no"><i class="empty"></i></p></td>
+            <td class="1_2"><p id="no"><i class="empty"></i></p></td>
+            <td class="1_3"><p id="no"><i class="empty"></i></p></td>
+            <td class="1_4"><p id="no"><i class="empty"></i></p></td>
+            <td class="1_5"><p id="no"><i class="empty"></i></p></td>
+            <td class="1_6"><p id="no"><i class="empty"></i></p></td>
+          </tr>
+          <tr>
+            <td class="2_1"><p id="no"><i class="empty"></i></p></td>
+            <td class="2_2"><p id="no"><i class="empty"></i></p></td>
+            <td class="2_3"><p id="yes"><i class="empty"></i></p></td>
+            <td class="2_4"><p id="no"><i class="empty"></i></p></td>
+            <td class="2_5"><p id="no"><i class="empty"></i></p></td>
+            <td class="2_6"><p id="no"><i class="empty"></i></p></td>
+          </tr>
+          <tr>
+            <td class="3_1"><p id="no"><i class="empty"></i></p></td>
+            <td class="3_2" onClick="changeColor();"><p id="yes"><i class="empty"></i></p></td>
+            <td class="3_3"><p id="no"><i class="black"></i></p></td>
+            <td class="3_4"><p id="no"><i class="white"></i></p></td>
+            <td class="3_5"><p id="no"><i class="empty"></i></p></td>
+            <td class="3_6"><p id="no"><i class="empty"></i></p></td>
+          </tr>
+          <tr>
+            <td class="4_1"><p id="no"><i class="empty"></i></p></td>
+            <td class="4_2"><p id="no"><i class="empty"></i></p></td>
+            <td class="4_3"><p id="no"><i class="white"></i></p></td>
+            <td class="4_4"><p id="no"><i class="black"></i></p></td>
+            <td class="4_5"><p id="yes"><i class="empty"></i></p></td>
+            <td class="4_6"><p id="no"><i class="empty"></i></p></td>
+          </tr>
+          <tr>
+            <td class="5_1"><p id="no"><i class="empty"></i></p></td>
+            <td class="5_2"><p id="no"><i class="empty"></i></p></td>
+            <td class="5_3"><p id="no"><i class="empty"></i></p></td>
+            <td class="5_4"><p id="yes"><i class="empty"></i></p></td>
+            <td class="5_5"><p id="no"><i class="empty"></i></p></td>
+            <td class="5_6"><p id="no"><i class="empty"></i></p></td>
+          </tr>
+          <tr>
+            <td class="6_1"><p id="no"><i class="empty"></i></p></td>
+            <td class="6_2"><p id="no"><i class="empty"></i></p></td>
+            <td class="6_3"><p id="no"><i class="empty"></i></p></td>
+            <td class="6_4"><p id="no"><i class="empty"></i></p></td>
+            <td class="6_5"><p id="no"><i class="empty"></i></p></td>
+            <td class="6_6"><p id="no"><i class="empty"></i></p></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
