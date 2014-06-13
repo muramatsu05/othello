@@ -8,17 +8,41 @@
   </head>
   <body>
 <script type="text/javascript">
+function changeTurn(){
+  alert("くろ！");
+};
+
+
 function changeColor(cell){
-  // alert("ようこそ！");
   var change = document.getElementById(cell);
   var change2 = change.className;
   if(change2 == 'yes'){
     document.getElementById(cell).innerHTML = '<p><i class="white"></i></p>';
-  }else {}
+  }else {};
+  //changeTurn();
 }
 
-
-
+// function attackable(){
+//   for (y = 1; y < 7; y = y +1){
+//     for (x = 1; x < 7; x = x +1){
+//       document.write("td = ", y,"_",x, " , ");
+//     }
+//     document.write("<br>");
+//   }
+// }
+function attackable(){
+  for (y = 1; y < 7; y = y +1){
+    for (x = 1; x < 7; x = x +1){
+      //document.write("td = ", y,"_",x, " , ");
+      var xx = "" + x + "_";
+      var yy = "" + y + ",";
+      var cell = xx + yy;
+      document.write(cell);
+      //var change = document.getElementById(cell);
+    }
+    document.write("<br>");
+  }
+}
 </script>
 
 
@@ -77,6 +101,7 @@ function changeColor(cell){
             <td id="6_6" class="no" onClick="changeColor('6_6')"><i class="empty"></i></td>
           </tr>
         </table>
+        <p onClick="attackable()">aaa</p>
       </div>
     </div>
   </body>
