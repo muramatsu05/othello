@@ -16,10 +16,10 @@ function changeTurn(){
 function changeColor(cell){
   var change = document.getElementById(cell);
   var change2 = change.className;
-  if(change[0] == 'y'){
-    document.getElementById(cell).innerHTML = '<i class="white"></i>';
+  if(change2 == 'yes_empty'){
+    change.className = 'no_white';
+    //document.getElementById(cell).innerHTML = '<i class="white"></i>';
   }else {};
-  alert(change2[1]);
 }
 
 // function attackable(){
@@ -33,15 +33,46 @@ function changeColor(cell){
 function attackable(){
   for (y = 1; y < 7; y = y +1){
     for (x = 1; x < 7; x = x +1){
-      //document.write("td = ", y,"_",x, " , ");
-      var xx = "" + x + "_";
-      var yy = "" + y;
-      var cell = xx + yy;
-      document.getElementById(cell).innerHTML = '<i class="white"></i>';
-      //document.write(cell);
-      //var change = document.getElementById(cell);
+      var xCell = "" + x + "_";
+      var yCell = "" + y;
+      var cell = xCell + yCell;
+      var element = document.getElementById(cell);
+      var elementClass = element.className;
+      if(elementClass == 'no_empty'){
+        for (yy = y - 1; yy < y + 2; yy = yy +1){
+          for (xx = x - 1; xx < x + 2; xx = xx +1){
+            if (yy > 0 && yy < 7) {
+              if (xx > 0 && xx < 7) {
+                var xxCell = "" + xx + "_";
+                var yyCell = "" + yy;
+                var cellB = xxCell + yyCell;
+                var elementB = document.getElementById(cellB);
+                var elementClassB = elementB.className;
+                if(elementClassB == 'no_black'){
+                  element.className = 'yes_empty'
+                  // for (yyy = yy - 1; yyy < yy + 2; yyy = yyy +1){
+                  //   for (xxx = xx - 1; xxx < xx + 2; xx = xxx +1){
+                  //     if (yyy > 0 && yyy < 7) {
+                  //       if (xxx > 0 && xxx < 7) {
+                  //         var xxxCell = "" + xxx + "_";
+                  //         var yyyCell = "" + yyy;
+                  //         var cellW = xxxCell + yyyCell;
+                  //         var elementW = document.getElementById(cellW);
+                  //         var elementClassW = elementW.className;
+                  //         if(elementClassW == 'no_white'){
+                  //           element.className = 'yes_empty';
+                  //         }else {};
+                  //       }
+                  //     }
+                  //   }
+                  // }
+                }else {};
+              }else {};
+            }else {};
+          }
+        }
+      }else {};
     }
-    //document.write("<br>");
   }
 }
 </script>
@@ -51,56 +82,56 @@ function attackable(){
 
 
     <div class="area-all">
-      <div class="area-main">--
+      <div class="area-main">
         <p onClick="attackable()">スタートボタンを作りたい</p>
         <table class="borad">
           <tr>
-            <td id="1_1" class="no empty" onClick="changeColor('1_1')"><i></i></td>
-            <td id="1_2" class="no empty" onClick="changeColor('1_2')"><i></i></td>
-            <td id="1_3" class="no empty" onClick="changeColor('1_3')"><i></i></td>
-            <td id="1_4" class="no empty" onClick="changeColor('1_4')"><i></i></td>
-            <td id="1_5" class="no empty" onClick="changeColor('1_5')"><i></i></td>
-            <td id="1_6" class="no empty" onClick="changeColor('1_6')"><i></i></td>
+            <td id="1_1" class="yes_empty" onClick="changeColor('1_1')"><i></i></td>
+            <td id="1_2" class="no_empty" onClick="changeColor('1_2')"><i></i></td>
+            <td id="1_3" class="no_empty" onClick="changeColor('1_3')"><i></i></td>
+            <td id="1_4" class="no_empty" onClick="changeColor('1_4')"><i></i></td>
+            <td id="1_5" class="no_empty" onClick="changeColor('1_5')"><i></i></td>
+            <td id="1_6" class="no_empty" onClick="changeColor('1_6')"><i></i></td>
           </tr>
           <tr>
-            <td id="2_1" class="no empty" onClick="changeColor('2_1')"><i></i></td>
-            <td id="2_2" class="yes empty" onClick="changeColor('2_2')"><i></i></td>
-            <td id="2_3" class="yes empty" onClick="changeColor('2_3')"><i></i></td>
-            <td id="2_4" class="no empty" onClick="changeColor('2_4')"><i></i></td>
-            <td id="2_5" class="no empty" onClick="changeColor('2_5')"><i></i></td>
-            <td id="2_6" class="no empty" onClick="changeColor('2_6')"><i></i></td>
+            <td id="2_1" class="no_empty" onClick="changeColor('2_1')"><i></i></td>
+            <td id="2_2" class="no_empty" onClick="changeColor('2_2')"><i></i></td>
+            <td id="2_3" class="no_empty" onClick="changeColor('2_3')"><i></i></td>
+            <td id="2_4" class="no_empty" onClick="changeColor('2_4')"><i></i></td>
+            <td id="2_5" class="no_empty" onClick="changeColor('2_5')"><i></i></td>
+            <td id="2_6" class="no_empty" onClick="changeColor('2_6')"><i></i></td>
           </tr>
           <tr>
-            <td id="3_1" class="no empty" onClick="changeColor('3_1')"><i></i></td>
-            <td id="3_2" class="yes empty" onClick="changeColor('3_2')"><i></i></td>
-            <td id="3_3" class="no black" onClick="changeColor('3_3')"><i></i></td>
-            <td id="3_4" class="no white" onClick="changeColor('3_4')"><i></i></td>
-            <td id="3_5" class="no empty" onClick="changeColor('3_5')"><i></i></td>
-            <td id="3_6" class="no empty" onClick="changeColor('3_6')"><i></i></td>
+            <td id="3_1" class="no_empty" onClick="changeColor('3_1')"><i></i></td>
+            <td id="3_2" class="no_empty" onClick="changeColor('3_2')"><i></i></td>
+            <td id="3_3" class="no_black" onClick="changeColor('3_3')"><i></i></td>
+            <td id="3_4" class="no_white" onClick="changeColor('3_4')"><i></i></td>
+            <td id="3_5" class="no_empty" onClick="changeColor('3_5')"><i></i></td>
+            <td id="3_6" class="no_empty" onClick="changeColor('3_6')"><i></i></td>
           </tr>
           <tr>
-            <td id="4_1" class="no empty" onClick="changeColor('4_1')"><i></i></td>
-            <td id="4_2" class="no empty" onClick="changeColor('4_2')"><i></i></td>
-            <td id="4_3" class="no white" onClick="changeColor('4_3')"><i></i></td>
-            <td id="4_4" class="no black" onClick="changeColor('4_4')"><i></i></td>
-            <td id="4_5" class="yes empty" onClick="changeColor('4_5')"><i></i></td>
-            <td id="4_6" class="no empty" onClick="changeColor('4_6')"><i></i></td>
+            <td id="4_1" class="no_empty" onClick="changeColor('4_1')"><i></i></td>
+            <td id="4_2" class="no_empty" onClick="changeColor('4_2')"><i></i></td>
+            <td id="4_3" class="no_white" onClick="changeColor('4_3')"><i></i></td>
+            <td id="4_4" class="no_black" onClick="changeColor('4_4')"><i></i></td>
+            <td id="4_5" class="no_empty" onClick="changeColor('4_5')"><i></i></td>
+            <td id="4_6" class="no_empty" onClick="changeColor('4_6')"><i></i></td>
           </tr>
           <tr>
-            <td id="5_1" class="no empty" onClick="changeColor('5_1')"><i></i></td>
-            <td id="5_2" class="no empty" onClick="changeColor('5_2')"><i></i></td>
-            <td id="5_3" class="no empty" onClick="changeColor('5_3')"><i></i></td>
-            <td id="5_4" class="yes empty" onClick="changeColor('5_4')"><i></i></td>
-            <td id="5_5" class="yes empty" onClick="changeColor('5_5')"><i></i></td>
-            <td id="5_6" class="no empty" onClick="changeColor('5_6')"><i></i></td>
+            <td id="5_1" class="no_empty" onClick="changeColor('5_1')"><i></i></td>
+            <td id="5_2" class="no_empty" onClick="changeColor('5_2')"><i></i></td>
+            <td id="5_3" class="no_empty" onClick="changeColor('5_3')"><i></i></td>
+            <td id="5_4" class="no_empty" onClick="changeColor('5_4')"><i></i></td>
+            <td id="5_5" class="no_empty" onClick="changeColor('5_5')"><i></i></td>
+            <td id="5_6" class="no_empty" onClick="changeColor('5_6')"><i></i></td>
           </tr>
           <tr>
-            <td id="6_1" class="no empty" onClick="changeColor('6_1')"><i></i></td>
-            <td id="6_2" class="no empty" onClick="changeColor('6_2')"><i></i></td>
-            <td id="6_3" class="no empty" onClick="changeColor('6_3')"><i></i></td>
-            <td id="6_4" class="no empty" onClick="changeColor('6_4')"><i></i></td>
-            <td id="6_5" class="no empty" onClick="changeColor('6_5')"><i></i></td>
-            <td id="6_6" class="no empty" onClick="changeColor('6_6')"><i></i></td>
+            <td id="6_1" class="no_empty" onClick="changeColor('6_1')"><i></i></td>
+            <td id="6_2" class="no_empty" onClick="changeColor('6_2')"><i></i></td>
+            <td id="6_3" class="no_empty" onClick="changeColor('6_3')"><i></i></td>
+            <td id="6_4" class="no_empty" onClick="changeColor('6_4')"><i></i></td>
+            <td id="6_5" class="no_empty" onClick="changeColor('6_5')"><i></i></td>
+            <td id="6_6" class="no_empty" onClick="changeColor('6_6')"><i></i></td>
           </tr>
         </table>
       </div>
